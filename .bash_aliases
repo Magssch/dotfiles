@@ -27,8 +27,10 @@ alias pc="pre-commit"
 
 # Python / Pip / virtualenv
 alias pi="pip install"
+alias pir="pip install -r requirements.txt"
 alias pf="pip freeze > requirements.txt"
 alias va="source venv/bin/activate"
+alias vd="deactivate"
 alias venv="python -m virtualenv venv"
 alias venv3="python3 -m virtualenv venv"
 alias pl="pyenv local"
