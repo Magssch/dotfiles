@@ -26,6 +26,7 @@ alias gcz="git cz"
 alias pc="pre-commit"
 
 # Python / Pip / virtualenv
+alias pip="pip3"
 alias pi="pip install"
 alias pir="pip install -r requirements.txt"
 alias pf="pip freeze > requirements.txt"
@@ -52,6 +53,7 @@ alias dreset="docker-compose down --volumes"
 alias ns="npm start"
 alias nr="npm run"
 alias nb="npm run build"
+alias nd="npm run dev"
 alias ni="npm install"
 
 # Firebase / Misc.
@@ -60,7 +62,3 @@ alias fbserve="npm run build && firebase serve"
 alias tf="terraform"
 alias crats="npx create-react-app . --template typescript --use-npm"
 alias cyprun="npx cypress open"
-
-bindkey "^[[1;7D" beginning-of-line
-bindkey "^[[1;7C" end-of-line
-bindkey "^[[1;7B" backward-kill-line
