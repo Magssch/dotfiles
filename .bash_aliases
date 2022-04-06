@@ -1,7 +1,5 @@
 # Navigation
-alias profile="code ~/.bash_profile"               # Open .bash profile in VSCode
 alias zshrc="code ~/.zshrc"                        # Open .zshrc in VSCode
-alias aliases="code ~/bash-aliases/.bash_aliases"  # Open .bash_aliases in VSCode
 alias here="code -r ."                             # Swith to this directory in current VSCode window
 alias lsa="ls -a"
 
