@@ -20,8 +20,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source '/Users/magnus/repos/bash-aliases/.bash_aliases'
-alias aliases='code ~/repos/bash-aliases/.bash_aliases'
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(rbenv init -)" 
@@ -37,6 +35,3 @@ export PATH=$PATH:$GEM_HOME/bin:$HOME/repos/flutter/bin
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
