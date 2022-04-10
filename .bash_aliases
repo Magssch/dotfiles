@@ -1,5 +1,4 @@
-# Navigation
-alias zshrc="code ~/.zshrc"                        # Open .zshrc in VSCode
+# Navigation                    # Open .zshrc in VSCode
 alias here="code -r ."                             # Swith to this directory in current VSCode window
 alias lsa="ls -a"
 

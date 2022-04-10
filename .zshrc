@@ -4,6 +4,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export LC_ALL=no_NO.UTF-8
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ENABLE_CORRECTION="false"
