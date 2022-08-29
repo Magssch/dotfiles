@@ -1,2 +1,2 @@
-# bash-aliases
- Version controlling my bash aliases
+# dotfiles
+Version controlling my shell setup and aliases. Targetting macOS.
