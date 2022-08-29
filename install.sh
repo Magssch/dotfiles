@@ -1,3 +1,4 @@
+# Setup and config bash / zsh files
 DOTFILES_DIR=${PWD/#$HOME/'~'}
 ZSHRC="${DOTFILES_DIR}/.zshrc"
 BASH_ALIASES="${DOTFILES_DIR}/.aliases"
@@ -6,3 +7,8 @@ echo "source ${BASH_ALIASES}" >> ~/.zshrc
 echo "alias aliases='code ${DOTFILES_DIR}/.aliases'" >> ~/.zshrc
 echo "alias zshrc='code ${DOTFILES_DIR}/.zshrc'" >> ~/.zshrc
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >> ~/.zshrc
+
+# Setup macOS defaults (if applicable)
+if [[ $OSTYPE == 'darwin'* ]]; then
+  source ./macosdefaults.sh
+fi
