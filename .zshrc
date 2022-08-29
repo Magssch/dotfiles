@@ -20,18 +20,22 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+ZSH_DOTENV_PROMPT=false
+
 source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-eval "$(rbenv init -)" 
-eval "$(pyenv init -)"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export GEM_HOME=$HOME/.gem
 export PATH=$PATH:$GEM_HOME/bin:$HOME/repos/flutter/bin
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/usr/local/bin:$PATH"
 
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
