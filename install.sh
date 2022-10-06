@@ -27,6 +27,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   if [[ ! -f "`which brew`"  ]] ; then
       echo "Installing Hombrew"
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      # Install fonts
+      brew tap homebrew/cask-fonts
+      brew install font-cascadia-code --cask 
+      brew install font-caskaydia-cove-nerd-font --cask 
   else
       echo "Updating Homebrew"
       brew update
