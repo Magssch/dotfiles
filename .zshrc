@@ -12,7 +12,6 @@ if [ -d ~/.oh-my-zsh ]; then
 	ENABLE_CORRECTION="false"
 
 	plugins=(
-		dotenv 
 		git 
 		github 
 		yarn 
@@ -20,6 +19,7 @@ if [ -d ~/.oh-my-zsh ]; then
 		npm 
 		rbenv
 		zsh-syntax-highlighting
+    	zsh-autosuggestions
 	)
 
 	ZSH_DOTENV_PROMPT=false

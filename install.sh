@@ -19,6 +19,9 @@ echo "alias aliases='code ${DOTFILES_DIR}/.aliases'" >> ~/.zshrc
 echo "alias zshrc='code ${DOTFILES_DIR}/.zshrc'" >> ~/.zshrc
 echo "source ${DOTFILES_DIR}/.p10k.zsh" >> ~/.zshrc
 
+# Git config
+git config pull.rebase true --global
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Setup macOS utilities and config (if applicable)
