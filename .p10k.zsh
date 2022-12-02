@@ -479,8 +479,8 @@
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
-  typeset -g POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
-  typeset -g POWERLEVEL9K_VCS_GIT_GITLAB_ICON=''
+  typeset -g POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
+  typeset -g POWERLEVEL9K_VCS_GIT_GITLAB_ICON=''
 
   # Icon color.
   typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=76
@@ -900,7 +900,7 @@
   # Separate environment name from Python version only with a space.
   typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
   # Custom icon.
-  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION='🐍'
+  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=''
 
   #####################[ anaconda: conda environment (https://conda.io/) ]######################
   # Anaconda environment color.
