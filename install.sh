@@ -26,6 +26,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Setup macOS utilities and config (if applicable)
 if [[ $OSTYPE == 'darwin'* ]]; then
+  chmod +x loginscriptbackspace.sh
   source ./macosdefaults.sh
   if [[ ! -f "`which brew`"  ]] ; then
       echo "Installing Hombrew"
