@@ -5,4 +5,4 @@ defaults write com.apple.dock autohide-delay -int 0
 defaults write com.apple.dock autohide-time-modifier -float 0.15
 killall Dock
 # Set right command as backspace key
-sudo defaults write com.apple.loginwindow LoginHook `pwd`/loginscript.sh
+sudo defaults write com.apple.loginwindow LoginHook `pwd`/loginscriptbackspace.sh
