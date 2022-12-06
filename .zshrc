@@ -45,6 +45,11 @@ if command -v pyenv > /dev/null; then
 	eval "$(pyenv init -)"
 fi
 
+# Set backspace to right cmd on Mac
+if [[ $OSTYPE == 'darwin'* ]]; then
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x70000002A}]}' > /dev/null;
+fi
+
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
