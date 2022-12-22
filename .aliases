@@ -3,6 +3,9 @@ alias here="code -r ."                             # Swith to this directory in 
 alias hr="code -r ."                               # Swith to this directory in current VSCode window
 alias lsa="ls -a"
 
+# File reading
+alias see="less --LINE-NUMBERS"                    # Read large file with line numbers
+
 # Git
 alias cb="git checkout"
 alias cbn="git checkout -b"                        # New git branch
