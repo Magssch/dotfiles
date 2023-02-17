@@ -52,9 +52,11 @@ alias vd="deactivate"
 alias venv="python -m virtualenv venv"
 alias venva="python -m virtualenv venv && source $DEFAULT_VENV_PATH"
 alias pl="pyenv local"
+alias poei="poetry install"
 alias poes="poetry shell"
 alias poer="poetry run"
-alias pobu="poetry build"
+alias popy="poetry run python"
+alias poeb="poetry build"
 
 # Docker
 alias dc="docker-compose"
