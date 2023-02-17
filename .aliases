@@ -36,7 +36,8 @@ then
     alias pip="pip3"
 fi
 
-if [[ $OSTYPE == 'msys']]; then
+if [[ "$OSTYPE" == "msys" ]];
+then
     DEFAULT_VENV_PATH="venv/Scripts/activate"
 else
     DEFAULT_VENV_PATH="venv/bin/activate"
