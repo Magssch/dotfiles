@@ -1,5 +1,6 @@
 # Navigation
 alias here="code -r ."                             # Swith to this directory in current VSCode window
+alias heren="code ."                             # Swith to this directory in current VSCode window
 alias hr="code -r ."                               # Swith to this directory in current VSCode window
 alias lsa="ls -a"
 
@@ -57,6 +58,14 @@ alias poes="poetry shell"
 alias poer="poetry run"
 alias popy="poetry run python"
 alias poeb="poetry build"
+
+# Create any python version virtualenv
+function venver {
+    eval "python3.$1 -m virtualenv venv"
+}
+function venvera {
+    venver && source $DEFAULT_VENV_PATH
+}
 
 # Docker
 alias dc="docker-compose"
