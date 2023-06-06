@@ -30,11 +30,6 @@ fi
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-export PATH=$PATH:$GEM_HOME/bin:$HOME/repos/flutter/bin
-export PATH="$HOME/usr/local/bin:$PATH"
-export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
-
 if command -v rbenv > /dev/null; then
 	export GEM_HOME=$HOME/.gem
 	eval "$(rbenv init -)"
@@ -47,7 +42,10 @@ fi
 
 # Set backspace to right cmd on Mac
 if [[ $OSTYPE == 'darwin'* ]]; then
-hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x70000002A}]}' > /dev/null;
+	hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x70000002A}]}' > /dev/null;
+	export PATH=$PATH:$GEM_HOME/bin:$HOME/repos/flutter/bin
+	export PATH="$HOME/usr/local/bin:$PATH"
+	export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
