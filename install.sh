@@ -40,7 +40,9 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   brew install font-caskaydia-cove-nerd-font --cask 
   brew install --cask font-jetbrains-mono
   # Install pyenv if needed
+  brew install readline xz
   if command -v pyenv > /dev/null; then
       brew install pyenv
+      # Manuall step: pyenv install 3.x
   fi
 fi
