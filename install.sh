@@ -26,18 +26,20 @@ git config pull.rebase true --global
 if [[ $OSTYPE == 'darwin'* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   source ./macosdefaults.sh
-  if [[ ! -f "`which brew`"  ]] ; then
+  if [[ ! -f "$(which brew)"  ]] ; then
       echo "Installing Hombrew"
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      # Install fonts
-      brew tap homebrew/cask-fonts
-      brew install font-cascadia-code --cask 
-      brew install font-caskaydia-cove-nerd-font --cask 
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   else
       echo "Updating Homebrew"
       brew update
       brew upgrade
   fi
+  # Install fonts
+  brew tap homebrew/cask-fonts
+  brew install font-cascadia-code --cask 
+  brew install font-caskaydia-cove-nerd-font --cask 
+  brew install --cask font-jetbrains-mono
+  # Install pyenv if needed
   if command -v pyenv > /dev/null; then
       brew install pyenv
   fi

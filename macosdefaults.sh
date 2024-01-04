@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 # Dock: Increase dock show / hide speed
