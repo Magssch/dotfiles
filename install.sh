@@ -25,7 +25,6 @@ git config pull.rebase true --global
 # Setup macOS utilities and config (if applicable)
 if [[ $OSTYPE == 'darwin'* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  chmod +x loginscriptbackspace.sh
   source ./macosdefaults.sh
   if [[ ! -f "`which brew`"  ]] ; then
       echo "Installing Hombrew"
