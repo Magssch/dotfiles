@@ -45,4 +45,10 @@ if [[ $OSTYPE == 'darwin'* ]]; then
       brew install pyenv
       # Manuall step: pyenv install 3.x
   fi
+  # Install poetry
+  brew install pipx
+  pipx ensurepath
+  pipx install poetry
+  mkdir "$ZSH_CUSTOM"/plugins/poetry
+  source poetry_config.sh
 fi
