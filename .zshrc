@@ -52,7 +52,7 @@ fi
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-FILE=.venv/bin/activate
+FILE=".venv/bin/activate"
 if test -f "$FILE"; then
-    source .venv/bin/activate
+    source $FILE
 fi

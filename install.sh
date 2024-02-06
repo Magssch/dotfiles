@@ -20,8 +20,7 @@ echo "alias zshrc='code ${DOTFILES_DIR}/.zshrc'" >> ~/.zshrc
 echo "source ${DOTFILES_DIR}/.p10k.zsh" >> ~/.zshrc
 
 # Git config
-git config pull.rebase true --global
-
+git config --global pull.rebase true
 # Setup macOS utilities and config (if applicable)
 if [[ $OSTYPE == 'darwin'* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
