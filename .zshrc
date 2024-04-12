@@ -43,8 +43,7 @@ fi
 # Set backspace to right cmd on Mac
 if [[ $OSTYPE == 'darwin'* ]]; then
 	hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x70000002A}]}' > /dev/null;
-	export PATH=$PATH:$GEM_HOME/bin:$HOME/repos/flutter/bin
-	export PATH="$HOME/usr/local/bin:$PATH"
+	export PATH="$HOME/usr/local/bin:$HOME/.npm-global/bin:$PATH"
 	export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
