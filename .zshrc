@@ -55,3 +55,12 @@ FILE=".venv/bin/activate"
 if test -f "$FILE"; then
     source $FILE
 fi
+
+function renameFiles () {
+  SEARCH="$1"
+  REPLACE="$2"
+  find . -type f -name "*${SEARCH}*" | while read FILENAME ; do
+      NEW_FILENAME="$(echo ${FILENAME} | sed -e "s/${SEARCH}/${REPLACE}/g")";
+      mv "${FILENAME}" "${NEW_FILENAME}";
+  done
+}
