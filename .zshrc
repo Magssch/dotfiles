@@ -4,24 +4,21 @@ fi
 
 # Path to your oh-my-zsh installation.
 
-if [ -d ~/.oh-my-zsh ]; then
-	export ZSH="$HOME/.oh-my-zsh"
-	export LC_ALL=no_NO.UTF-8
+export LC_ALL=no_NO.UTF-8
 
-	ZSH_THEME="powerlevel10k/powerlevel10k"
-	ENABLE_CORRECTION="false"
+# Theme
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-	plugins=(
-		git
-		yarn
-		npm
-		zsh-syntax-highlighting
-		zsh-autosuggestions
-	)
+# Plugins
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-	ZSH_DOTENV_PROMPT=false
-
-	source $ZSH/oh-my-zsh.sh
+# Completions — only regenerate dump once per day
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
 fi
 
 # NVM — lazy-loaded on first use
