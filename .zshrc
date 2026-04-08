@@ -12,14 +12,11 @@ if [ -d ~/.oh-my-zsh ]; then
 	ENABLE_CORRECTION="false"
 
 	plugins=(
-		git 
-		github 
-		yarn 
-		brew 
-		npm 
-		rbenv
+		git
+		yarn
+		npm
 		zsh-syntax-highlighting
-    	zsh-autosuggestions
+		zsh-autosuggestions
 	)
 
 	ZSH_DOTENV_PROMPT=false
@@ -27,29 +24,67 @@ if [ -d ~/.oh-my-zsh ]; then
 	source $ZSH/oh-my-zsh.sh
 fi
 
+# NVM — lazy-loaded on first use
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-if command -v rbenv > /dev/null; then
-	export GEM_HOME=$HOME/.gem
-	eval "$(rbenv init -)"
-fi
+_load_nvm() {
+  unfunction nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
 
+nvm() { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm() { _load_nvm; npm "$@"; }
+npx() { _load_nvm; npx "$@"; }
+
+# pyenv — lazy-loaded on first use
 if command -v pyenv > /dev/null; then
-	export PATH="$HOME/.pyenv/bin:$PATH"
-	eval "$(pyenv init -)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/shims:$PATH"
+	pyenv() {
+		unfunction pyenv
+		eval "$(command pyenv init -)"
+		pyenv "$@"
+	}
 fi
 
-# Set backspace to right cmd on Mac
+# SDKMAN — lazy-loaded on first use
+export SDKMAN_DIR="$HOME/.sdkman"
+
+_load_sdkman() {
+  unfunction sdk java gradle kotlin groovy mvn
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+}
+
+sdk()    { _load_sdkman; sdk "$@"; }
+java()   { _load_sdkman; java "$@"; }
+gradle() { _load_sdkman; gradle "$@"; }
+kotlin() { _load_sdkman; kotlin "$@"; }
+groovy() { _load_sdkman; groovy "$@"; }
+mvn()    { _load_sdkman; mvn "$@"; }
+
+# macOS PATH additions
 if [[ $OSTYPE == 'darwin'* ]]; then
-	hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x70000002A}]}' > /dev/null;
 	export PATH="$HOME/usr/local/bin:$HOME/.npm-global/bin:$PATH"
 	export PATH="$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 fi
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# gcloud — lazy-loaded on first use
+gcloud() {
+	unfunction gcloud gsutil bq
+	[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] && . "$HOME/google-cloud-sdk/path.zsh.inc"
+	[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ] && . "$HOME/google-cloud-sdk/completion.zsh.inc"
+	gcloud "$@"
+}
+gsutil() { unfunction gcloud gsutil bq; gcloud; gsutil "$@"; }
+bq()     { unfunction gcloud gsutil bq; gcloud; bq "$@"; }
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 FILE=".venv/bin/activate"
 if test -f "$FILE"; then

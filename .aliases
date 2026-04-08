@@ -11,6 +11,7 @@ alias see="less --LINE-NUMBERS"                    # Read large file with line n
 alias cb="git checkout"
 alias cbn="git checkout -b"                        # New git branch
 alias gs="git status"
+alias gm="git merge"
 alias gc="git commit -m"
 alias ga="git add" 
 alias gaa="git add -A"                             # Stage all files in working tree
@@ -39,9 +40,9 @@ fi
 
 if [[ "$OSTYPE" == "msys" ]];
 then
-    DEFAULT_VENV_PATH="venv/Scripts/activate"
+    DEFAULT_VENV_PATH=".venv/Scripts/activate"
 else
-    DEFAULT_VENV_PATH="venv/bin/activate"
+    DEFAULT_VENV_PATH=".venv/bin/activate"
 fi
 
 alias pi="pip install"
@@ -58,6 +59,8 @@ alias poes="poetry shell"
 alias poer="poetry run"
 alias popy="poetry run python"
 alias poeb="poetry build"
+alias uvr="uv run"
+alias uvi="uv install"
 
 # Create any python version virtualenv
 function venver {
@@ -82,6 +85,8 @@ alias nr="npm run"
 alias nb="npm run build"
 alias nd="npm run dev"
 alias ni="npm install"
+alias pnpm="corepack pnpm"
+alias pnpx="corepack pnpx"
 
 # Firebase / Misc.
 alias fbdeploy="npm run build && firebase deploy --only hosting"

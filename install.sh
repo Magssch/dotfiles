@@ -19,6 +19,8 @@ echo "alias aliases='code ${DOTFILES_DIR}/.aliases'" >> ~/.zshrc
 echo "alias zshrc='code ${DOTFILES_DIR}/.zshrc'" >> ~/.zshrc
 echo "source ${DOTFILES_DIR}/.p10k.zsh" >> ~/.zshrc
 
+echo "source ${DOTFILES_DIR}/.zlogin" > ~/.zlogin
+
 # Git config
 git config --global pull.rebase true
 # Setup macOS utilities and config (if applicable)
