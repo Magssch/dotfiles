@@ -23,6 +23,7 @@ alias gf="git fetch"
 alias get="git pull"
 alias gl="git log"
 alias gfl="git reflog"
+alias gcu="git reset --soft HEAD~1"              # Undo last commit but keep changes staged
 
 # Git misc.
 alias gcz="git cz"
