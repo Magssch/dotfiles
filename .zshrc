@@ -21,11 +21,24 @@ else
     compinit -C
 fi
 
+# which — trigger lazy loaders before resolving
+which() {
+  case "$1" in
+    nvm)                       _load_nvm; echo "$NVM_DIR/nvm.sh"; return ;;
+    node|npm|npx)              _load_nvm ;;
+    sdk|java|gradle|kotlin|groovy|mvn) _load_sdkman ;;
+    gcloud|gsutil|bq)          unfunction gcloud gsutil bq 2>/dev/null
+                               [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] && . "$HOME/google-cloud-sdk/path.zsh.inc" ;;
+    pyenv)                     unfunction pyenv 2>/dev/null; eval "$(command pyenv init -)" ;;
+  esac
+  whence -p "$@"
+}
+
 # NVM — lazy-loaded on first use
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
 _load_nvm() {
-  unfunction nvm node npm npx
+  unfunction nvm node npm npx 2>/dev/null
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 }
 
@@ -49,7 +62,7 @@ fi
 export SDKMAN_DIR="$HOME/.sdkman"
 
 _load_sdkman() {
-  unfunction sdk java gradle kotlin groovy mvn
+  unfunction sdk java gradle kotlin groovy mvn 2>/dev/null
   [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 }
 
